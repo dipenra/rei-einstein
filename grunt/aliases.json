@@ -1,0 +1,12 @@
+{
+	"default": [
+		"clean:all",
+		"sass"
+	],
+	"build": [
+		"clean",
+		"sass",
+		"cssmin",
+		"uglify"
+	]
+}

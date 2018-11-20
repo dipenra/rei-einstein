@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "Making REI search smarter with Einstein",
   "main": "index.html",
-  "dependencies": {
-    "mustache": "^3.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "lite-server": "^2.4.0"
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.3.2",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "lite-server": "^2.4.0",
+    "load-grunt-config": "^0.19.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
