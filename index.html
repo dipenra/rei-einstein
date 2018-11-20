@@ -4,18 +4,25 @@
 		<title>REI Einstein Search</title>
 		<link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/solid.css" integrity="sha384-rdyFrfAIC05c5ph7BKz3l5NG5yEottvO/DQ0dCrwD8gzeQDjYBHNr1ucUpQuljos" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
 	</head>
 	<body>
 		<header>
-			<div>
+			<div class="logo">
 				<img src="//satchel.rei.com/media/img/header/rei-co-op-logo-white.svg" alt="REI homepage"/>
-				<form>
-					<input type="text" value="" name="search"/>
-				</form>
+			</div>
+			<div class="search">
+				<div>
+					<form>
+						<input type="text" value="" name="search"/>
+					</form>
+				</div>
 			</div>
 		</header>
 		<main>
 			<div class="items-wrapper">
+				<!-- Initial list of static items to display for demo purpose -->
 				<ul class="items">
 					<li class="item">
 						<div>
@@ -47,6 +54,93 @@
 						</div>
 					</li>
 
+					<li class="item">
+						<div>
+							<a href="/product/112645/granite-gear-crown2-60-pack-highland-peatblack-mens">
+								<img src="https://www.rei.com/media/product/1126450001?size=230" alt="Crown2 60 Pack - Highland Peat/Black - Men's"/>
+							</a>
+						</div>
+
+						<div class="options"> </div>
+
+						<div>
+							<a href="/product/112645/granite-gear-crown2-60-pack-highland-peatblack-mens">
+								<span class="brand">Granite Gear</span><br/>
+								Crown2 60 Pack - Highland Peat/Black - Men's
+							</a>
+						</div>
+
+						<div class="price">
+							<span class="regular">$199.95</span>
+							<p></p>
+						</div>
+
+						<div class="ratings-wrapper">
+							<div class="ratings">
+								<span>☆☆☆☆☆</span>
+								<span class="rate">☆☆☆☆☆</span>
+							</div>(0)
+						</div>
+					</li>
+
+					<li class="item">
+						<div>
+							<a href="/product/137819/sherpa-adventure-gear-kirtipur-insulated-sweater-mens">
+								<img src="https://www.rei.com/media/product/1126460003?size=230" alt="Crown2 60 Pack - Women's"/>
+							</a>
+						</div>
+
+						<div class="options">5 colors available</div>
+
+						<div>
+							<a href="/product/125341/mammut-neon-gear-45-pack">
+								<span class="brand">Granite Gear</span><br/>
+								Crown2 60 Pack - Women's
+							</a>
+						</div>
+
+						<div class="price">
+							<span class="regular">$299.95</span>
+							<p></p>
+						</div>
+
+						<div class="ratings-wrapper">
+							<div class="ratings">
+								<span>☆☆☆☆☆</span>
+								<span class="rate" style="width: 100%;">☆☆☆☆☆</span>
+							</div>(1)
+						</div>
+					</li>
+
+					<li class="item">
+						<div>
+							<a href="/product/125341/mammut-neon-gear-45-pack">
+								<img src="https://www.rei.com/media/product/1378190001?size=230" alt="Kirtipur Insulated Sweater - Men's"/>
+							</a>
+						</div>
+
+						<div class="options">2 colors available</div>
+
+						<div>
+							<a href="/product/125341/mammut-neon-gear-45-pack">
+								<span class="brand">Sherpa Adventure Gear</span><br/>
+								Kirtipur Insulated Sweater - Men's
+							</a>
+						</div>
+
+						<div class="price">
+							<span class="regular">$199.95</span>
+							<p></p>
+						</div>
+
+						<div class="ratings-wrapper">
+							<div class="ratings">
+								<span>☆☆☆☆☆</span>
+								<span class="rate" style="width: 50%;">☆☆☆☆☆</span>
+							</div>(10)
+						</div>
+					</li>
+
 				</ul>
 			</div>
 		</main>
@@ -62,15 +156,15 @@
 			// }).done(function(r){
 			// 	console.log(r);
 			// });
-			var view = {
-				title: "Joe",
-				calc: function () {
-					return 2 + 4;
-				}
-				};
+		// 	var view = {
+		// 		title: "Joe",
+		// 		calc: function () {
+		// 			return 2 + 4;
+		// 		}
+		// 		};
 
-				var output = Mustache.render("{{title}} spends {{calc}}", view);
-		});
+		// 		var output = Mustache.render("{{title}} spends {{calc}}", view);
+		// });
 		</script>
 	</body>
 </html>
