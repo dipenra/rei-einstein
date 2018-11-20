@@ -1,0 +1,30 @@
+{
+  "name": "rei-einstein",
+  "version": "1.0.0",
+  "description": "Making REI search smarter with Einstein",
+  "main": "index.html",
+  "dependencies": {
+    "mustache": "^3.0.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dipenra/rei-einstein.git"
+  },
+  "keywords": [
+    "REI",
+    "Einstein"
+  ],
+  "author": "Dipenra Rai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dipenra/rei-einstein/issues"
+  },
+  "homepage": "https://github.com/dipenra/rei-einstein#readme"
+}
