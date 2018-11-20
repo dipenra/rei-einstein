@@ -1,0 +1,77 @@
+body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 16px;
+	color: #292b2c;
+}
+a {
+	text-decoration: none;
+	color: #292b2c;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+header {
+	background-color: #000;
+}
+
+/*items*/
+.items {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.items .item{
+	width: 200px;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px 10px;
+	font-size: 0.875em;
+}
+
+.item > div {
+	padding-bottom: 8px;
+}
+
+.item .options {
+	color: #767676;
+	font-size: 0.857em;
+	padding-bottom: 5px;
+}
+.item .brand {
+	font-weight: 600;
+	font-size: 0.929em;
+	color: #000;
+}
+.item .sale-price .discount {
+	color: #c00;
+}
+.item .sale-price .regular{
+	text-decoration: line-through;
+}
+
+/*ratings*/
+.ratings-wrapper {
+	
+}
+.ratings-wrapper .ratings {
+	margin: auto;
+	position: relative;
+	width: 80px;
+    overflow: hidden;
+	height: 17px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.ratings-wrapper .ratings span {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+.ratings-wrapper .ratings span.rate {
+	width: 0%;
+	overflow: hidden;
+	color: #ff0000;
+}
