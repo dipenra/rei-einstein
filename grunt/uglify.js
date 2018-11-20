@@ -4,7 +4,7 @@ module.exports = function (grunt, options) {
 			files: [{
 				expand: true,
 				src: ['static/js/*.js'],
-				dest: 'dist/static/js',
+				dest: 'dist/',
 				cwd: '.',
 				rename: function (dst, src) {
 					var file = src.replace('dist/', '');

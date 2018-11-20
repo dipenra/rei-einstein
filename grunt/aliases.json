@@ -1,10 +1,12 @@
 {
 	"default": [
-		"clean:all",
-		"sass"
+		"clean:tempfiles",
+		"sass",
+		"jshint",
+		"copy"
 	],
 	"build": [
-		"clean",
+		"clean:all",
 		"sass",
 		"cssmin",
 		"uglify"
