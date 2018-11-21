@@ -24,131 +24,48 @@
 		</header>
 		<main>
 			<div class="items-wrapper">
-				<!-- Initial list of static items to display for demo purpose -->
-				<ul class="items">
-					<li class="item">
-						<div>
-							<a href="/product/125341/mammut-neon-gear-45-pack">
-								<img src="https://www.rei.com/media/product/1253410002?size=230" alt="Neon Gear 45 Pack"/>
-							</a>
-						</div>
-
-						<div class="options">2 colors available</div>
-
-						<div>
-							<a href="/product/125341/mammut-neon-gear-45-pack">
-								<span class="brand">Mammut</span><br/>
-								Neon Gear 45 Pack
-							</a>
-						</div>
-
-						<div class="price sale-price">
-							<span class="discount">$111.89</span>
-							<span class="regular">$159.95</span>
-							<p>You save 30%</p>
-						</div>
-
-						<div class="ratings-wrapper">
-							<div class="ratings">
-								<span>☆☆☆☆☆</span>
-								<span class="rate">☆☆☆☆☆</span>
-							</div>(0)
-						</div>
-					</li>
-
-					<li class="item">
-						<div>
-							<a href="/product/112645/granite-gear-crown2-60-pack-highland-peatblack-mens">
-								<img src="https://www.rei.com/media/product/1126450001?size=230" alt="Crown2 60 Pack - Highland Peat/Black - Men's"/>
-							</a>
-						</div>
-
-						<div class="options"> </div>
-
-						<div>
-							<a href="/product/112645/granite-gear-crown2-60-pack-highland-peatblack-mens">
-								<span class="brand">Granite Gear</span><br/>
-								Crown2 60 Pack - Highland Peat/Black - Men's
-							</a>
-						</div>
-
-						<div class="price">
-							<span class="regular">$199.95</span>
-							<p></p>
-						</div>
-
-						<div class="ratings-wrapper">
-							<div class="ratings">
-								<span>☆☆☆☆☆</span>
-								<span class="rate">☆☆☆☆☆</span>
-							</div>(0)
-						</div>
-					</li>
-
-					<li class="item">
-						<div>
-							<a href="/product/137819/sherpa-adventure-gear-kirtipur-insulated-sweater-mens">
-								<img src="https://www.rei.com/media/product/1126460003?size=230" alt="Crown2 60 Pack - Women's"/>
-							</a>
-						</div>
-
-						<div class="options">5 colors available</div>
-
-						<div>
-							<a href="/product/125341/mammut-neon-gear-45-pack">
-								<span class="brand">Granite Gear</span><br/>
-								Crown2 60 Pack - Women's
-							</a>
-						</div>
-
-						<div class="price">
-							<span class="regular">$299.95</span>
-							<p></p>
-						</div>
-
-						<div class="ratings-wrapper">
-							<div class="ratings">
-								<span>☆☆☆☆☆</span>
-								<span class="rate" style="width: 100%;">☆☆☆☆☆</span>
-							</div>(1)
-						</div>
-					</li>
-
-					<li class="item">
-						<div>
-							<a href="/product/125341/mammut-neon-gear-45-pack">
-								<img src="https://www.rei.com/media/product/1378190001?size=230" alt="Kirtipur Insulated Sweater - Men's"/>
-							</a>
-						</div>
-
-						<div class="options">2 colors available</div>
-
-						<div>
-							<a href="/product/125341/mammut-neon-gear-45-pack">
-								<span class="brand">Sherpa Adventure Gear</span><br/>
-								Kirtipur Insulated Sweater - Men's
-							</a>
-						</div>
-
-						<div class="price">
-							<span class="regular">$199.95</span>
-							<p></p>
-						</div>
-
-						<div class="ratings-wrapper">
-							<div class="ratings">
-								<span>☆☆☆☆☆</span>
-								<span class="rate" style="width: 50%;">☆☆☆☆☆</span>
-							</div>(10)
-						</div>
-					</li>
-
-				</ul>
+				<!-- Initial list of items will be loaded from JSON file for demo purpose -->
+				<ul class="items" id="itemsList"></ul>
 			</div>
 		</main>
 		<footer>
 		</footer>
+
+		<script id="itemsTemplate" type="x-tmpl-mustache">
+			{{#items}}
+				<li class="item">
+					<div class="image-wrapper">
+						<a href="{{link}}">
+							<img src="{{thumbnailImageLink}}" alt="{{title}}"/>
+						</a>
+					</div>
+
+					<div class="options">{{options}}</div>
+
+					<div>
+						<a href="{{link}}">
+							<span class="brand">{{brand}}</span><br/>
+							{{title}}
+						</a>
+					</div>
+
+					<div class="price {{priceType}}">
+						<span class="discount">{{salePrice}}</span>
+						<span class="regular">{{price}}</span>
+						<p>{{savingsPercent}}</p>
+					</div>
+
+					<div class="ratings-wrapper">
+						<div class="ratings">
+							<span>☆☆☆☆☆</span>
+							<span class="rate" style="width: {{ratingPercent}}%">☆☆☆☆☆</span>
+						</div>({{reviewCount}})
+					</div>
+				</li>
+			{{/items}}
+		</script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
 		<script type="text/javascript" src="dist/static/js/page.index.js"></script>
 	</body>
 </html>

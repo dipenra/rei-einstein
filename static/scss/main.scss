@@ -58,12 +58,19 @@ header {
 		box-sizing: border-box;
 		padding: 10px 10px;
 		font-size: 0.875em;
+		overflow: hidden;
 	}
 }
 
 .item {
 	> div {
 		padding-bottom: 8px;
+	}
+	.image-wrapper {
+		// height: 230px;
+		// img {
+		// 	width: 100%;
+		// }
 	}
 	.options {
 		color: #767676;
