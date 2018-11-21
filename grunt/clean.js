@@ -1,6 +1,6 @@
 module.exports = function (grunt, options) {
 	return {
 		all: ['dist/*'],
-		tempfiles: ['dist/css/', 'dist/js/'],
+		cssjsfiles: ['dist/css/', 'dist/js/'],
 	};
 };
