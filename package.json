@@ -25,7 +25,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server",
-    "start": "lite-server -c configs/my-bs-config.js"
+    "start": "lite-server -c configs/bs-config.json"
   },
   "repository": {
     "type": "git",
