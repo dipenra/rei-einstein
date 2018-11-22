@@ -62,4 +62,4 @@ typings/
 .next
 
 #distribute directory
-dist/
+#dist/

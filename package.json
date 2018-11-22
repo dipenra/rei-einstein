@@ -25,8 +25,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server",
-    "start": "lite-server -c configs/bs-config.js",
-    "postinstall": "grunt build"
+    "start": "lite-server -c configs/bs-config.js"
   },
   "repository": {
     "type": "git",

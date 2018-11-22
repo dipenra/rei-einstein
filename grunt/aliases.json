@@ -8,7 +8,6 @@
 	"build": [
 		"clean:all",
 		"sass",
-		"cssmin",
-		"uglify"
+		"copy"
 	]
 }
