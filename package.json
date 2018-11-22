@@ -24,8 +24,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server",
-    "start": "lite-server",
-    "postinstall": "grunt build"
+    "start": "lite-server"
   },
   "repository": {
     "type": "git",
