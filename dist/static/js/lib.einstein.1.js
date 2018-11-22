@@ -6,6 +6,7 @@ var ReiEinstein = ReiEinstein || {};
 
 ReiEinstein.Einstein = function() {
 	//Einstein Configuration
+
 	var config = {
 		token: "OQSGEZMBYI76ZK7O4EFCHPHC55GLF7QSZJZT4C6DCNM6K7XDY4GVIRM35INSNQJZPL6BRKAXMPPWLCFUHDWZHZ2Z63SDSPB27XBPJFA", //Token
 		modelId: "DK6FZZFSKGMT4T2UI5FYLPMMBA" //Intent modelId
@@ -39,11 +40,6 @@ ReiEinstein.Einstein = function() {
 		"object": "predictresponse"
 	};
 
-	/**
-	 * getUserIntent
-	 * Call Einstein Language Intent API to get the intent of the User
-	 * @param {STRING} search 
-	 */
 	function getUserIntent(search) {
 		var df = $.Deferred();
 		var url = "https://api.einstein.ai/v2/language/intent";
@@ -53,9 +49,9 @@ ReiEinstein.Einstein = function() {
 		};
 
 		function setHeader(xhr) {
-			xhr.setRequestHeader("Authorization", "Bearer " + config.token);
-			xhr.setRequestHeader("Cache-Control", "no-cache");
-			xhr.setRequestHeader("Content-Type", "multipart/form-data");
+			xhr.setRequestHeader('Authorization', 'Bearer ' + config.token);
+			xhr.setRequestHeader('Cache-Control', 'no-cache');
+			xhr.setRequestHeader('Content-Type', 'multipart/form-data');
 		}
 
 		function done(r) {
@@ -73,25 +69,23 @@ ReiEinstein.Einstein = function() {
 		
 		$.ajax({
 			url: url,
-			method: "POST",
+			method: 'POST',
 			data: postData,
 			beforeSend: setHeader,
-			dataType: "json"
+			dataType: 'json'
 		}).done(done).fail(fail);
 
 		return df.promise();
 	}
 
 	/**
-	 * getIntent 
-	 * Checks if the 1st probability 
+	 * getIntent checks if the 1st probability 
 	 * passes the probability threshold. 
 	 * If so returns the label as Intent 
 	 * else passes a Default Intent
-	 * @param {JSON} data 
 	 */
 	function getIntent(data) {
-		var defaultIntent = "Shopping";
+		var defaultIntent = 'Shopping';
 		var threshHold = 50;
 		if(data && data.probabilities) {
 			var p = data.probabilities[0];

@@ -1,3 +1,7 @@
+/**
+ * Products Library
+ * This Handles Calling Products API and Sanitizing Product Data for the Frontend
+ */
 var ReiEinstein = ReiEinstein || {};
 
 ReiEinstein.Products = function() {
@@ -5,7 +9,6 @@ ReiEinstein.Products = function() {
 	function fetchProducts(page) {
 		var df = $.Deferred();
 		var url = "/data/rei-test-data-" + page + ".json";
-		var Ajax = new ReiEinstein.Ajax();
 
 		function done(r) {
 			if(r && r.results) {
@@ -20,7 +23,12 @@ ReiEinstein.Products = function() {
 			df.reject(r);
 		}
 		
-		Ajax.get(url).done(done).fail(fail);
+		$.ajax({
+			url: url,
+			method: "GET",
+			dataType: "json"
+		}).done(done).fail(fail);
+
 		return df.promise();
 	}
 

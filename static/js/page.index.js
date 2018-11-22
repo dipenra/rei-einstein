@@ -23,8 +23,14 @@ $(function(){
 		e.preventDefault();
 		var search = $(this).find("input[name='search']").val();
 		var Einstein = new ReiEinstein.Einstein();
-		Einstein.getUserIntent(search);
-		console.log(search);
+
+		function done(r) {
+			var intent = Einstein.getIntent(r);
+			//redirect the page
+			var RedirectPage = new ReiEinstein.RedirectPage();
+			RedirectPage.redirect(intent, search);
+		}
+		Einstein.getUserIntent(search).done(done);
 
 	}
 
@@ -36,7 +42,7 @@ $(function(){
 		var bodyHeight = $(document).height() - windowHeight;
 		var scrollPercentage = (scrollTop / bodyHeight);
 
-		// true if the scroll is more than 90% from the top
+		// TRUE if the scroll is more than 90% from the top
 		return (scrollPercentage > 0.9);
 	}
 
