@@ -1,18 +1,28 @@
 $(function(){
-	var xhr;
+	//page data that are local to this page
+	var pageData = {
+		xhr: false,
+		pagination: 1,
+		endofrecord: false, //If xhr status is 404 set this to true, since there are no other test data
+	};
 
 	$(window).on("scroll", windowScrollHandler).scroll();
-
+	$("header").on("submit", "form[name='search-form']", submitSearchFormHandler);
+	
 	//load initial products
 	fetchProductData();
 
 	/* handlers */
 	function windowScrollHandler() {
-		if(isPageBottom() && !xhr) {
+		if(isPageBottom() && !pageData.xhr) {
 			fetchProductData();
 		}
 	}
 
+	function submitSearchFormHandler(e) {
+		e.preventDefault();
+		
+	}
 
 	/* functions */
 	function isPageBottom() {
@@ -27,49 +37,31 @@ $(function(){
 	}
 
 	function fetchProductData() {
-		function beforeSend() {
-			xhr = true;
-		}
+		if(pageData.endofrecord) return;
 
-		function onDone(r) {
-			if(r && r.results) {
-				renderProductItems(sanitizeProductData(r.results));
+		var Products = new ReiEinstein.Products();
+		function done(r) {
+			renderProductItems(r);
+			pageData.pagination++;
+			pageData.xhr = false;
+		}
+		function fail(r) {
+			if(r && typeof r.status != "undefined") {
+				if(r.status==404) {
+					pageData.endofrecord = true;
+				}
 			}
+			pageData.xhr = false;
 		}
-		$.ajax({
-			'method': 'GET',
-			'url': '/data/rei-test-data.json',
-			'beforeSend': beforeSend,
-		}).done(onDone);
-	}
-
-	function sanitizeProductData(data) {
-		return $.map(data, function(obj){
-			var totalRatingStars = 5;
-			var reiDomain = "https://www.rei.com/";
-			var priceDisplay = obj.displayPrice.priceDisplay;
-			var rating = obj.rating * (100/totalRatingStars);
-			return {
-				title: obj.title,
-				brand: obj.brand,
-				link: reiDomain + obj.link,
-				thumbnailImageLink : obj.thumbnailImageLink,
-				reviewCount: (obj.reviewCount) ? obj.reviewCount : 0,
-				priceType: priceDisplay.priceDisplayType.toLowerCase(),
-				price: (priceDisplay.price) ? priceDisplay.price : priceDisplay.compareAtPrice,
-				salePrice: priceDisplay.salePrice,
-				savingsPercent: priceDisplay.savingsPercent,
-				ratingPercent: rating
-			};
-
-		});
+		pageData.xhr = true;
+		Products.fetchProducts(pageData.pagination).done(done).fail(fail);
 	}
 
 	function renderProductItems(data) {
-		var templateItems = $('#itemsTemplate').html();
+		var templateItems = $("#itemsTemplate").html();
 		Mustache.parse(templateItems);
 		var $html = $(Mustache.render(templateItems, {items: data}));
-		$('#itemsList').append($html);
+		$("#itemsList").append($html);
 	}
 
 });
