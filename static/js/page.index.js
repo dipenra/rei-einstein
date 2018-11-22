@@ -21,7 +21,11 @@ $(function(){
 
 	function submitSearchFormHandler(e) {
 		e.preventDefault();
-		
+		var search = $(this).find("input[name='search']").val();
+		var Einstein = new ReiEinstein.Einstein();
+		Einstein.getUserIntent(search);
+		console.log(search);
+
 	}
 
 	/* functions */

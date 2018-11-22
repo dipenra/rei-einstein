@@ -1,6 +1,7 @@
 @import
         "reset",
-        "variables"
+		"variables",
+		"mixins"
 ;
 
 body {
@@ -41,6 +42,9 @@ header {
 		border: 0;
 		padding: 10px;
 		box-sizing: border-box;
+	}
+	@include placeholder {
+		color: white;
 	}
 }
 
