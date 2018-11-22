@@ -11,34 +11,6 @@ ReiEinstein.Einstein = function() {
 		modelId: "DK6FZZFSKGMT4T2UI5FYLPMMBA" //Intent modelId
 	};
 
-	//Test data to send as reponse when the Einstein Intent fails
-	var testResponseDataIntent = {
-		"probabilities": [
-			{
-				"label": "Shopping",
-				"probability": 0.92021406
-			},
-			{
-				"label": "Hiking Project App",
-				"probability": 0.024322152
-			},
-			{
-				"label": "Powder Project App",
-				"probability": 0.023376303
-			},
-			{
-				"label": "National Parks App",
-				"probability": 0.014301951
-			},
-			{
-				"label": "MTB Project App",
-				"probability": 0.01163862
-			},
-
-		],
-		"object": "predictresponse"
-	};
-
 	/**
 	 * getUserIntent
 	 * Call Einstein Language Intent API to get the intent of the User
@@ -68,7 +40,7 @@ ReiEinstein.Einstein = function() {
 			 * passing test data and marking the ajax call success
 			 * Note: The response always has Shopping with TOP probability 
 			*/
-			df.resolve(testResponseDataIntent);
+			df.resolve(getTestData(search));
 		}
 		
 		$.ajax({
@@ -89,6 +61,7 @@ ReiEinstein.Einstein = function() {
 	 * If so returns the label as Intent 
 	 * else passes a Default Intent
 	 * @param {JSON} data 
+	 * @return {String}
 	 */
 	function getIntent(data) {
 		var defaultIntent = "Shopping";
@@ -100,6 +73,50 @@ ReiEinstein.Einstein = function() {
 			}
 		}
 		return defaultIntent;
+	}
+
+	/**
+	 * getTestData
+	 * This is just some controlled test data when Einstein API call fails
+	 * @param {String} search 
+	 * @return {JSON} JSON object that is in the format Intent API returns in
+	 */
+	function getTestData(search) {
+		//Default intent that gets the top priority for test data 
+		var intentLabelFiller = 'Shopping';
+
+		//simple keywords mapping for project app for testing only
+		var keywords = {
+			"Hiking Project App": ["hiking map", "hiking routes", "trail maps", "hiking near here"],
+			"Powder Project App": ["ski map", "ski routes", "powder maps", "sking near here", "snowboarding maps"],
+			"National Parks App": ["yosemite map", "national park", "national parks", "national parks map"],
+			"MTB Project App": ["mountain biking map", "mountain map", "biking map"]
+		};
+
+		//Check if the search text is in the keywords
+		for(var key in keywords) {
+			if(keywords[key].indexOf(search)> -1) {
+				intentLabelFiller = key;
+			}
+		}
+
+		return {
+			"probabilities": [
+				{
+					"label": intentLabelFiller,
+					"probability": 0.92021406
+				},
+				{
+					"label": "Hiking Project App",
+					"probability": 0.024322152
+				},
+				{
+					"label": "Powder Project App",
+					"probability": 0.023376303
+				},
+			],
+			"object": "predictresponse"
+		};
 	}
 
 	return {

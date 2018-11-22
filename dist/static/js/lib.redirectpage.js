@@ -29,11 +29,12 @@ ReiEinstein.RedirectPage = function() {
 				window.location.replace(intentMap[intent_l] + search);
 			break;
 			default:
-				window.href(intentMap[intent_l]);
+				window.location.replace(intentMap[intent_l]);
 			break;
 		}
+		loadinIframe(url);
 	}
-
+	
 	return {
 		redirect: redirect
 	};
