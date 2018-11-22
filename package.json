@@ -1,6 +1,10 @@
 {
   "name": "rei-einstein",
   "version": "1.0.0",
+  "engines": {
+    "node": "v10.10.0",
+    "npm": "6.x"
+  },
   "description": "Making REI search smarter with Einstein",
   "main": "index.html",
   "dependencies": {},
@@ -20,7 +24,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server",
-    "start": "lite-server"
+    "start": "lite-server",
+    "postinstall": "grunt build"
   },
   "repository": {
     "type": "git",

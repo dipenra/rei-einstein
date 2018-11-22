@@ -15,21 +15,18 @@ ReiEinstein.Einstein = function() {
 		};
 
 		function setHeader(xhr) {
-			//xhr.setRequestHeader('Authorization', 'Bearer ' + config.token);
+			xhr.setRequestHeader('Authorization', 'Bearer ' + config.token);
 			// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
 			// xhr.setRequestHeader('Access-Control-Allow-Credentials', true);
 			//xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhot:3000');
 		}
 
-		//beforeSend: setHeader,
+		//
 		$.ajax({
 			url: url,
-			contentType: 'multipart/form-data',	
 			method: 'POST',
-			data: JSON.stringify(postData),
-			headers: {
-				Authorization: 'Bearer ' + config.token
-			},
+			data: postData,
+			beforeSend: setHeader,
 			success: function(data){
 			  console.log('succes: '+data);
 			}
