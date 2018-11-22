@@ -10,25 +10,24 @@ ReiEinstein.Einstein = function() {
 		//var df = $.Deferred();
 		var url = "https://api.einstein.ai/v2/language/intent";
 		var postData = {
-			modelId: config.token,
+			modelId: config.modelId,
 			document: search
 		};
 
 		function setHeader(xhr) {
 			xhr.setRequestHeader('Authorization', 'Bearer ' + config.token);
-			// xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-			// xhr.setRequestHeader('Access-Control-Allow-Credentials', true);
-			//xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhot:3000');
+			xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+			xhr.setRequestHeader('Access-Control-Allow-Credentials', true);
+			xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://localhot:3000');
 		}
 
-		//
 		$.ajax({
 			url: url,
 			method: 'POST',
 			data: postData,
 			beforeSend: setHeader,
 			success: function(data){
-			  console.log('succes: '+data);
+			  console.log('succes: ' + data);
 			}
 		});
 		//var Ajax = new ReiEinstein.Ajax();
