@@ -44,7 +44,7 @@ header {
 		box-sizing: border-box;
 	}
 	@include placeholder {
-		color: white;
+		color: $font-color2;
 	}
 }
 
@@ -72,20 +72,16 @@ header {
 	}
 	.image-wrapper {
 		overflow: hidden;
-		// height: 230px;
-		// img {
-		// 	width: 100%;
-		// }
 	}
 	.options {
-		color: #767676;
+		color: $font-color4;
 		font-size: 0.857em;
 		padding-bottom: 5px;
 	}
 	.brand {
 		font-weight: 600;
 		font-size: 0.929em;
-		color: #000;
+		color: $font-color5;
 	}
 	.sale-price {
 		.discount {
@@ -118,6 +114,14 @@ header {
 			}
 		}
 	}
+}
+
+/* footer */
+footer {
+	background-color: $bg-color1;
+	width: 100%;
+	height: 40px;
+	color: $font-color2;
 }
 
 /* media */
